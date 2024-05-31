@@ -1,14 +1,29 @@
 # ¿Que es una API?
-Conjunto de funciones y procedimientos que cumplen una o muchas funciones con el fin de ser utilizadas por otro software
+
+Conjunto de funciones y procedimientos que cumplen un objetivo específico con el fin de ser utilizadas por otro software
+
 Aplication Programming Interfaces
 
 Ejemplos:
 
 -File System API
-    -WriteFileSync
-    -
+    -WriteFileSync()
+    -mkdir()
+-DOM API
+    -getElemetByID()
+    -on('event')
+    -Etc.
+-Bootstrap
 
+Ejemplos: 
+-pokeapi
+-spotify API
+-Swapi
+-Facebook API
+-Rickandmortyapi
 
+Las API's son interfaces que nos ayudan a comunicar un elemento A con un elemento B
+inclusive ya sea elementos cerrados como una librería hasta servidores
 
 # Que es REST y RESTFULL (tipos de APIS)
 
