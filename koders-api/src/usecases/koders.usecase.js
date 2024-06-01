@@ -19,7 +19,7 @@ async function getAll(){
 //26
 async function getById(id){
     //32 Trae el koder por el id
-    const koder = await Koders.findById()
+    const koder = await Koders.findById(id)
     return koder
 }
 
@@ -27,13 +27,14 @@ async function getById(id){
 async function deleteById(id){
     //33
     const koderDeleted = await Koders.findByIdAndDelete(id)
+    if(!koderDeleted) throw new Error('Koder does not exists')
     return koderDeleted
 }
 //28
 async function updateByID(id,newKoderData){
     //34
-    const updateKoder = await Koders.findByIdAndUpdate(id,newKoderData, {new:true})
-    return updateKoder
+    const updatedKoder = await Koders.findByIdAndUpdate(id,newKoderData, {new:true})
+    return updatedKoder
 
 }
 

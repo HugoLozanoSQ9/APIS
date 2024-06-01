@@ -1,11 +1,17 @@
 //6
 const express = require('express')
 
+//60
+const kodersRouter = require ('./routes/koders.router')
+
 //7
 const app = express()
 
 //8
 app.use(express.json()) //por que va a procesar JSON
+
+//61
+app.use('/koders',kodersRouter) //se coloca abajodel 8 
 
 //9
 app.get('/', (req,res)=>{
