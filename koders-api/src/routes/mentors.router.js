@@ -1,93 +1,77 @@
-//30
-const kodersUsecase = require('../usecases/koders.usecase')
-//31
+const mentorsUsecase = require('../usecases/mentors.usecase')
+
 const express = require('express')
-//32
+
 const router = express.Router()
 
-//GET /koders 34
-router.get('/',async (req,res)=>{
-    //36
+router.get('/',async(req,res)=>{
     try {
-        //35
-        const koders = await kodersUsecase.getAll() //ismpre es importante ponerse encima de la función para saber si es una promesa o no 
-        //38
+
+        const mentors = await mentorsUsecase.getAll() 
+        
         res.json({
             success:true,
             data:{
-                koders
+                mentors
             }
         })
 
-    } catch (error) { //37
+    } catch (error) { 
         res.status(error.status || 500)
         res.json({
-            success:false,
+            seuccess:false,
             error: error.message
         })
     }
-    
 })
 
-//39
 router.post('/',async(req,res)=>{
-    //40
-    try { 
-        //42
-        const koderCreated = await kodersUsecase.create(req.body) 
-        //43
+    try {
+        const mentorPosted = await mentorsUsecase.create(req.body)
         res.json({
             success:true,
             data:{
-                koder : koderCreated
+                mentor:mentorPosted
             }
         })
     } catch (error) {
-        //41 Se pone lo mismo en todos los endpoint's
-        res.status(error.status || 500)
-        res.json({
-            success:false,
-            error: error.message
-        })
+        
     }
-})
-//44
-router.get('/:id',async (req,res)=>{
-    try {
-        //45
-        const {id} = req.params
-        //47
-        const koder = await kodersUsecase.getById(id) //ismpre es importante ponerse encima de la función para saber si es una promesa o no 
-        //48
-        res.json({
-            success:true,
-            data:{
-                koder
-            }
-        })
-    } catch (error) { //46
-        res.status(error.status || 500)
-        res.json({
-            success:false,
-            error: error.message
-        })
-    }
-    
 })
 
-//49
-router.delete('/:id', async (req,res)=>{
-    //50
+router.get('/:id',async (req,res)=>{
     try {
-        //51
+
         const {id} = req.params
-        //53
-        const koderDeleted = await kodersUsecase.deleteById(id)
-        //54
+        
+        const mentor = await mentorsUsecase.getById(id) //ismpre es importante ponerse encima de la función para saber si es una promesa o no 
+        
         res.json({
             success:true,
             data:{
-                koder : koderDeleted
+                mentor
+            }
+        })
+    } catch (error) { 
+        res.status(error.status || 500)
+        res.json({
+            success:false,
+            error: error.message
+        })
+    }
+})
+
+router.delete('/:id', async (req,res)=>{
+    try {
+        
+        const {id} = req.params
+        
+        const mentorDeleted = await mentorsUsecase.deleteById(id)
+        
+        res.json({
+            success:true,
+            data:{
+                mentor: mentorDeleted
             }
         })
 
@@ -101,21 +85,22 @@ router.delete('/:id', async (req,res)=>{
     }
 })
 
-//55
 router.patch('/:id',async(req,res)=>{
     try {
-        //56
+        
         const {id} = req.params
-        //58
-        const koderUpdated = await kodersUsecase.updateByID(id,req.body)
-        //59
+        
+        const mentorUpdated = await mentorsUsecase.updateByID(id,req.body)
+        
         res.json({
             success:true,
-            data:{koder:koderUpdated}
+            data:{
+                mentor: mentorUpdated
+            }
         })
 
     } catch (error) {
-        //57
+        
         res.status(error.status || 500)
         res.json({
             success:false,
@@ -124,5 +109,4 @@ router.patch('/:id',async(req,res)=>{
     }
 })
 
-//33
-module.exports = router
+module.exports=router

@@ -27,7 +27,7 @@ async function getById(id){
 async function deleteById(id){
     //33
     const koderDeleted = await Koders.findByIdAndDelete(id)
-    if(!koderDeleted) throw new Error('Koder does not exists')
+    if(!koderDeleted) throw new Error('Koder does not exists') //validación agregada hast el ultimo
     return koderDeleted
 }
 //28
