@@ -32,12 +32,10 @@ const schema = new mongoose.Schema({
         required: false,
 
     },
-    // generation: {
-    //     type: Number,
-    //     min: 1,
-    //     max: 100,
-    //     required: false,
-    // },
+    generation: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"generations"
+    },
     createdAd:{
         type: Date,
         default:Date.now

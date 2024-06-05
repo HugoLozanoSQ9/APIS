@@ -5,8 +5,10 @@ const express = require('express')
 //32
 const router = express.Router()
 
+const auth = require('../middlewares/auth.middleware')
+
 //GET /koders 34
-router.get('/',async (req,res)=>{
+router.get('/', auth ,async (req,res)=>{
     //36
     try {
         //35
@@ -52,7 +54,7 @@ router.post('/',async(req,res)=>{
     }
 })
 //44
-router.get('/:id',async (req,res)=>{
+router.get('/:id',auth,async (req,res)=>{
     try {
         //45
         const {id} = req.params
@@ -76,7 +78,7 @@ router.get('/:id',async (req,res)=>{
 })
 
 //49
-router.delete('/:id', async (req,res)=>{
+router.delete('/:id',auth, async (req,res)=>{
     //50
     try {
         //51
@@ -102,7 +104,7 @@ router.delete('/:id', async (req,res)=>{
 })
 
 //55
-router.patch('/:id',async(req,res)=>{
+router.patch('/:id',auth,async(req,res)=>{
     try {
         //56
         const {id} = req.params

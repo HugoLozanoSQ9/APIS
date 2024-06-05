@@ -88,3 +88,7 @@ También existe la arquitectura exagonál
 
 npm init -y
 npm install express mongoose dotenv
+
+npm install http-errors (sirve para levantar errores)
+npm install bcryptjs (sirve para cifrar contraseñas)
+npm install jsonwebtoken (sirve para las autenticaciones)

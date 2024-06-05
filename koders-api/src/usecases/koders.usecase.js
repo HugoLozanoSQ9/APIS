@@ -1,10 +1,21 @@
 //23
+const kodersModel = require('../models/koders.model')
 const Koders = require('../models/koders.model')
+const createError = require('http-errors')
+const encrypt = require("../lib/encrypt")
 
 //24
 async function create(koderData){
     //30 Koders.create va a retornar una promesa por lo que se tiene que definir como asincrona
     //si no simplemente tendré que ponerle el .then().catch() el problema es que no se puede retorar el resultado
+    const koderFound = await kodersModel.findOne({email:koderData.email})//1.1 Validaciones ver la rama anterior para ver los cambios
+
+    if(koderFound)throw createError(409, "Email alredy in use")
+
+    const password = await encrypt.encrypt(koderData.password)
+
+    koderData.password = password
+
     const newKoder = await Koders.create(koderData)
     return newKoder
 }
