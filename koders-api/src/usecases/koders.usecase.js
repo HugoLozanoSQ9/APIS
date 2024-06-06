@@ -23,14 +23,14 @@ async function create(koderData){
 //25
 async function getAll(){
     //31  Trae toda la lista de koders, también trae una promesa 
-    const allKoders = await Koders.find()
+    const allKoders = await Koders.find().populate("generation")
     return allKoders
 }
 
 //26
 async function getById(id){
     //32 Trae el koder por el id
-    const koder = await Koders.findById(id)
+    const koder = await Koders.findById(id).populate("generation")
     return koder
 }
 
