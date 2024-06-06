@@ -1,3 +1,50 @@
+# Koders APIv1 generation js 33
+## javascript 33
+This is a repo created during the backend module in [kodemia](https://kodemia.mx) owo
+
+Lista desordenada 
+- uno 
+- dos 
+- tres
+    - cuatro
+        - cinco
+
+Lista ordenada
+
+1. uno 
+    - hola
+    - adios
+2. dos 
+    - hola1
+    - adios1
+
+## How to run?
+
+1. Install dependencies
+
+```
+$ npm install
+```
+
+2. Create an .env file with guide example.env
+
+```
+$ touch .env
+```
+
+
+3. to run in dev mode: 
+
+```
+$ npm run dev
+```
+
+4. to runin production mode
+
+```
+$ npm start
+```
+
 # ¿Que es una API?
 
 Conjunto de funciones y procedimientos que cumplen un objetivo específico con el fin de ser utilizadas por otro software
