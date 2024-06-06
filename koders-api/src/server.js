@@ -1,6 +1,8 @@
 //6
 const express = require('express')
 
+const cors = require("cors")
+
 //60
 const kodersRouter = require ('./routes/koders.router')
 const mentorsRouter = require('./routes/mentors.router')
@@ -8,6 +10,9 @@ const authRouter = require('./routes/auth.router')
 const generation = require('./routes/generation.router')
 //7
 const app = express()
+
+app.use(cors())
+
 
 //8
 app.use(express.json()) //por que va a procesar JSON
